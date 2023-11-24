@@ -56,4 +56,10 @@
   90% {transform: translate(0, -40px)}
   100% {transform: translate(0, 0);}
 }
-    
+
+.cat-info img {
+  max-width: 25vw; 
+    max-height: 25vh; 
+  display: block;
+  margin: 0 auto; 
+}
