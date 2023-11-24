@@ -1,3 +1,11 @@
+.body{
+  background-image: url('https://fon.litrelax.ru/uploads/posts/2023-02/1676980699_foni-club-p-oboi-kotiki-multyashnie-na-noutbuk-2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 .loader {
     /* position: relative; */
     width: 75px;
@@ -60,14 +68,19 @@
 .cat-info {
   display: flex;
   align-items: center;
+  border: 2px solid ;
+  border-color: aquamarine;
+
 }
 
 .cat-info img {
   max-width: 50vw; 
     max-height: 50vh; 
   display: block;
-  margin-right: 20px;
-}
+  margin-right: 20px;}
+
+
 .cat-info p {
   flex:1;
 }
+

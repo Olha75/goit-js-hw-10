@@ -47,8 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         catInfo.appendChild(img);
 
         const infoParagraph = document.createElement('p');
-        // infoParagraph.textContent = `Порода: ${breedDetails.name}, Опис: ${breedDetails.description}, Темперамент: ${breedDetails.temperament}`;
-        infoParagraph.textContent = `Порода: ${cat.breeds[0].name}, Опис: ${translateDescriptionToUkrainian(cat.breeds[0].description)}, Темперамент: ${cat.breeds[0].temperament}`;
+        infoParagraph.textContent = `Порода: ${breedDetails.name}, Опис: ${breedDetails.description}, Темперамент: ${breedDetails.temperament}`;
         catInfo.appendChild(infoParagraph);
       })
       .catch(error => {
