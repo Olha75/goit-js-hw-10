@@ -88,3 +88,7 @@ body{
   flex:1;
 }
 
+.error{
+  display: none;
+  color:rgb(186, 72, 72)
+}

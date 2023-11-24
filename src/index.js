@@ -4,7 +4,7 @@ import { fetchBreeds, fetchCatByBreed, fetchBreedDetails  } from './cat-api.js';
 
 
 new SlimSelect({
-  select: '#selectElement',
+  select: '#breedSelect',
 });
 
 import axios from "axios";
