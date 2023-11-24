@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedBreedId = breedSelect.value;
     catInfo.innerHTML = '';
 
+    loader.style.display = 'block';
+
     fetchCatByBreed(selectedBreedId)
       .then(cats => {
         const cat = cats[0];
@@ -50,10 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(error => {
         console.error('Помилка при отриманні інформації про кота за породою:', error);
+      })
+      .finally(() => {
+        loader.style.display = 'none';
       });
+    });
   });
-});
-
 
 
 
