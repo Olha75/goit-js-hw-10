@@ -81,11 +81,18 @@ body{
   max-width: 50vw; 
     max-height: 50vh; 
   display: block;
-  margin-right: 20px;}
+  margin-right: 20px;
+}
+
+.cat-info h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #470404;}
 
 
 .cat-info p {
   flex:1;
+  display: block;
 }
 
 .error{
@@ -93,3 +100,11 @@ body{
   color:rgb(186, 72, 72)
   
 }
+/* 
+breedDetails.name{
+
+} */
+/* .description-container {
+  display: flex;
+  flex-direction: column;
+} */
