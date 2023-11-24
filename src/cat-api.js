@@ -30,8 +30,22 @@ function fetchCatByBreed(breedId) {
     });
 }
 
-export { fetchBreeds, fetchCatByBreed };
+function fetchBreedDetails(breedId) {
+  return fetch(`${API_URL}/breeds/${breedId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => data)
+    .catch(error => {
+      console.error('Error fetching breed details:', error);
+      throw error;
+    });
+}
 
+export { fetchBreeds, fetchCatByBreed, fetchBreedDetails };
 
 // https://api.thecatapi.com/v1/images/search
 // breed_ids

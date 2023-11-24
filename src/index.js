@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select';
-import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
+import { fetchBreeds, fetchCatByBreed, fetchBreedDetails  } from './cat-api.js';
 
 
 new SlimSelect({
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loader.style.display = 'block';
 
-    fetchCatByBreed(selectedBreedId)
-      .then(cats => {
+    Promise.all([fetchCatByBreed(selectedBreedId), fetchBreedDetails(selectedBreedId)])
+      .then(([cats, breedDetails]) => {
         const cat = cats[0];
         const img = document.createElement('img');
         img.src = cat.url;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         catInfo.appendChild(img);
 
         const infoParagraph = document.createElement('p');
-        infoParagraph.textContent = `Порода: ${cat.breeds[0].name}, Опис: ${cat.breeds[0].description}, Темперамент: ${cat.breeds[0].temperament}`;
+        infoParagraph.textContent = `Порода: ${breedDetails.name}, Опис: ${breedDetails.description}, Темперамент: ${breedDetails.temperament}`;
         catInfo.appendChild(infoParagraph);
       })
       .catch(error => {
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .finally(() => {
         loader.style.display = 'none';
       });
-    });
   });
+});
 
 
 
