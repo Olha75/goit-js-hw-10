@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select';
-// import fetchBreeds from
+import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 
 
 new SlimSelect({
@@ -11,7 +11,7 @@ import axios from "axios";
 
 axios.defaults.headers.common["x-api-key"] = "live_9hI5TC9HPYJRhH8Gtg4eTcngwpwFFfjAMbdbyKywZKhWDoRzX1TTnnEkwSlVw6aA";
 
-GET https://api.thecatapi.com/v1/breeds
+// GET https://api.thecatapi.com/v1/breeds
 // select.breed-select
 const refs = {
   form: document.querySelector(".js-search-form "),
