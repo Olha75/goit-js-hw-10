@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const temperamentParagraph = document.createElement('p');
         temperamentParagraph.textContent = `Темперамент: ${breedDetails.temperament}`;
         catInfo.appendChild(temperamentParagraph);
+
+        hidden.style.display =  'none';
       })
       .catch(error => {
         console.error('Помилка при отриманні інформації про кота за породою:', error);
