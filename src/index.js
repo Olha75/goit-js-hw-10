@@ -1,4 +1,3 @@
-
 import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select';
 import { fetchBreeds, fetchCatByBreed, fetchBreedDetails } from './cat-api.js';
@@ -66,11 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
-
-
-
-
-
 
 
 
