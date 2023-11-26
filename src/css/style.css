@@ -94,6 +94,11 @@ body{
  padding-right: 100px;
  }
 
+ h2{
+  margin-left: 50px;
+  margin-bottom: 20px;
+  color: #470404;
+ }
 
 .cat-info p {
   display: flex;  
@@ -104,15 +109,16 @@ margin-right: 50px;}
   /* display: none; */
   color:rgb(186, 72, 72);
   font-size: 20px;
+  margin-left: 50px;
   }   
 
 .breed-select {
-  margin-top: 50px;
-  margin-left: 50px;
+    margin-left: 50px;
   margin-bottom: 20px;
   width: 500px;
   height: 30px;
   border-radius: 10px;
   border-color:rgb(186, 72, 72); 
   color: #470404;
- }
+  
+}

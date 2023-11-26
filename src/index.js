@@ -6,9 +6,10 @@ new SlimSelect({
   select: '#breedSelect',
 });
 
-import axios from "axios";
+import axios from 'axios';
 
-axios.defaults.headers.common["x-api-key"] = "live_9hI5TC9HPYJRhH8Gtg4eTcngwpwFFfjAMbdbyKywZKhWDoRzX1TTnnEkwSlVw6aA";
+axios.defaults.headers.common['x-api-key'] =
+  'live_9hI5TC9HPYJRhH8Gtg4eTcngwpwFFfjAMbdbyKywZKhWDoRzX1TTnnEkwSlVw6aA';
 
 document.addEventListener('DOMContentLoaded', () => {
   const breedSelect = document.querySelector('.breed-select');
@@ -17,70 +18,62 @@ document.addEventListener('DOMContentLoaded', () => {
   let catInfo = document.querySelector('.cat-info');
 
   fetchBreeds()
-      .then(breeds => {
-          breeds.forEach(({ id, name }) => {
-              const option = document.createElement('option');
-              option.value = id;
-              option.textContent = name;
-              breedSelect.appendChild(option);
-          });
-          loader.style.display = 'none';
-      })
-      .catch(() => {
-          loader.style.display = 'none';
-          error.style.display = 'block';
+    .then(breeds => {
+      breeds.forEach(({ id, name }) => {
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = name;
+        breedSelect.appendChild(option);
       });
+      loader.style.display = 'none';
+    })
+    .catch(() => {
+      loader.style.display = 'none';
+      error.style.display = 'block';
+    });
 
   breedSelect.addEventListener('change', async () => {
-      const selectedBreedId = breedSelect.value;
-      catInfo.innerHTML = '';
+    const selectedBreedId = breedSelect.value;
+    catInfo.innerHTML = '';
 
-      loader.style.display = 'block';
+    loader.style.display = 'block';
 
-      try {
-          const [cats, breedDetails] = await Promise.all([
-              fetchCatByBreed(selectedBreedId),
-              fetchBreedDetails(selectedBreedId)
-          ]);
+    try {
+      const [cats, breedDetails] = await Promise.all([
+        fetchCatByBreed(selectedBreedId),
+        fetchBreedDetails(selectedBreedId),
+      ]);
 
-          const cat = cats[0];
-          const img = document.createElement('img');
-          img.src = cat.url;
-          img.alt = 'Cat';
-          catInfo.appendChild(img);
+      const cat = cats[0];
+      const img = document.createElement('img');
+      img.src = cat.url;
+      img.alt = 'Cat';
+      catInfo.appendChild(img);
 
-          const breedTitle = document.createElement('h1');
-          breedTitle.textContent = breedDetails.name;
-          catInfo.appendChild(breedTitle);
+      const breedTitle = document.createElement('h1');
+      breedTitle.textContent = breedDetails.name;
+      catInfo.appendChild(breedTitle);
 
-          const descriptionParagraph = document.createElement('p');
-          descriptionParagraph.innerHTML = `<strong>Опис:</strong> ${breedDetails.description}`;
-          catInfo.appendChild(descriptionParagraph);
+      const descriptionParagraph = document.createElement('p');
+      descriptionParagraph.innerHTML = `<strong>Опис:</strong> ${breedDetails.description}`;
+      catInfo.appendChild(descriptionParagraph);
 
-          const temperamentParagraph = document.createElement('p');
-          temperamentParagraph.innerHTML = `<strong>Темперамент:</strong> ${breedDetails.temperament}`;
-          catInfo.appendChild(temperamentParagraph);
+      const temperamentParagraph = document.createElement('p');
+      temperamentParagraph.innerHTML = `<strong>Темперамент:</strong> ${breedDetails.temperament}`;
+      catInfo.appendChild(temperamentParagraph);
 
-          // assuming you have a 'hidden' element in your HTML
-          const hidden = document.querySelector('.hidden');
-          hidden.style.display = 'none';
-      } catch (error) {
-          console.error('Помилка при отриманні інформації про кота за породою:', error);
-      } finally {
-          loader.style.display = 'none';
-      }
+      const hidden = document.querySelector('.hidden');
+      hidden.style.display = 'none';
+    } catch (error) {
+      console.error(
+        'Помилка при отриманні інформації про кота за породою:',
+        error
+      );
+    } finally {
+      loader.style.display = 'none';
+    }
   });
 });
-
-
-
-
-
-
-
-
-
-
 
 // live_9hI5TC9HPYJRhH8Gtg4eTcngwpwFFfjAMbdbyKywZKhWDoRzX1TTnnEkwSlVw6aA
 
