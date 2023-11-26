@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
           catInfo.appendChild(breedTitle);
 
           const descriptionParagraph = document.createElement('p');
-          descriptionParagraph.textContent = `Опис: ${breedDetails.description}`;
+          descriptionParagraph.innerHTML = `<strong>Опис:</strong> ${breedDetails.description}`;
           catInfo.appendChild(descriptionParagraph);
 
           const temperamentParagraph = document.createElement('p');
-          temperamentParagraph.textContent = `Темперамент: ${breedDetails.temperament}`;
+          temperamentParagraph.innerHTML = `<strong>Темперамент:</strong> ${breedDetails.temperament}`;
           catInfo.appendChild(temperamentParagraph);
 
           // assuming you have a 'hidden' element in your HTML
@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 });
-
 
 
 

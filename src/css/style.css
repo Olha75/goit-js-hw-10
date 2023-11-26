@@ -75,8 +75,7 @@ body{
   background-color: rgb(249, 243, 243);
   margin-left: 50px;
   margin-right: 50px;
-  
-
+  border-radius: 10px;
 }
 
 .cat-info img {
@@ -84,20 +83,19 @@ body{
     max-height: 50vh; 
   display: block;
   margin-right: 20px;
+  border-radius: 10px;
 }
 
 .cat-info h1 {
   font-size: 24px;
   font-weight: bold;
   color: #470404;
-  /* text-align: center; */
+  text-align: center;
  padding-right: 100px;
  }
 
 
 .cat-info p {
-  /* flex:1;
-  display: block; */
   display: flex;  
 flex-wrap: wrap; 
 margin-right: 50px;}
@@ -106,10 +104,15 @@ margin-right: 50px;}
   /* display: none; */
   color:rgb(186, 72, 72);
   font-size: 20px;
-  
-}                             
+  }   
 
-/* .description-container {
-  display: flex;
-  flex-direction: column;
-} */
+.breed-select {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  width: 500px;
+  height: 30px;
+  border-radius: 10px;
+  border-color:rgb(186, 72, 72); 
+  color: #470404;
+ }
