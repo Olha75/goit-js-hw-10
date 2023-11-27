@@ -54,25 +54,30 @@ axios.defaults.headers.common['x-api-key'] =
         ]);
   
         const cat = cats[0];
-        const img = document.createElement('img');
-        img.src = cat.url;
-        img.alt = 'Cat';
-        catInfo.appendChild(img);
   
-        const breedTitle = document.createElement('h1');
-        breedTitle.textContent = breedDetails.name;
-        catInfo.appendChild(breedTitle);
+        if (cat && cat.url) {
+          const img = document.createElement('img');
+          img.src = cat.url;
+          img.alt = 'Cat';
+          catInfo.appendChild(img);
   
-        const descriptionParagraph = document.createElement('p');
-        descriptionParagraph.innerHTML = `<strong>Опис:</strong> ${breedDetails.description}`;
-        catInfo.appendChild(descriptionParagraph);
+          const breedTitle = document.createElement('h1');
+          breedTitle.textContent = breedDetails.name;
+          catInfo.appendChild(breedTitle);
   
-        const temperamentParagraph = document.createElement('p');
-        temperamentParagraph.innerHTML = `<strong>Темперамент:</strong> ${breedDetails.temperament}`;
-        catInfo.appendChild(temperamentParagraph);
+          const descriptionParagraph = document.createElement('p');
+          descriptionParagraph.innerHTML = `<strong>Опис:</strong> ${breedDetails.description}`;
+          catInfo.appendChild(descriptionParagraph);
   
-        const hidden = document.querySelector('.hidden');
-        hidden.style.display = 'none';
+          const temperamentParagraph = document.createElement('p');
+          temperamentParagraph.innerHTML = `<strong>Темперамент:</strong> ${breedDetails.temperament}`;
+          catInfo.appendChild(temperamentParagraph);
+  
+          const hidden = document.querySelector('.hidden');
+          hidden.style.display = 'none';
+        } else {
+          throw new Error('Інформацію про котика не знайдено, оберіть іншого');
+        }
       } catch (error) {
         console.error(error);
         displayError();
